@@ -149,11 +149,6 @@ h1 {
     color: #2c3e50;     /* Başlık rengi */
 }
 
-.dark-mode h1 {
-    text-align: center; /* Başlığı ortalar */
-    font-weight: bold;  /* Başlığı kalın yapar */
-    font-size: 2em;     /* Başlık boyutunu artırır */
-    margin-top: 20px;   /* Üstte boşluk bırakır */
-    margin-bottom: 20px; /* Altta boşluk bırakır */
+.dark-mode .h1 {
     color: #f4f4f4;     /* Başlık rengi */
 }
