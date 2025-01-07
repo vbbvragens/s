@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.dark-mode {
+    background-color: #222;
+    color: #f4f4f4;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+    background-color: #45a049;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.button {
+    display: block; /* Butonları blok düzende yerleştir */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px 0; /* Alt alta dizilmesi için marj */
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, opacity 0.3s ease; /* Opaklık için geçiş */
+    font-size: 16px;
+}
+
+.button.fade {
+    opacity: 0.5; /* Diğer butonların opaklığı */
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.selected {
+    background-color: #4CAF50; /* Seçilen cevabın arka plan rengi */
+    color: white; /* Seçilen cevabın metin rengi */
+}
+
+.dark-mode .button {
+    background-color: #666;
+    color: #f4f4f4;
+}
+
+.dark-mode .button:hover {
+    background-color: #555;
+}
+
+.dark-mode .button.selected {
+    background-color: #515151; /* Koyu tema için seçilen buton rengi */
+}
+
+.question {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .question {
+    background-color: #444;
+    color: #f4f4f4;
+}
+
+.result {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.true-result {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.false-result {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.score {
+    margin-top: 20px;
+    font-weight: bold;
+    padding: 10px;
+    background: #f0f4f4;
+    border-radius: 5px;
+}
+
+.dark-mode .score {
+    background-color: #222;
+    color: #f4f4f4;
+}

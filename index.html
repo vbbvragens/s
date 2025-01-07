@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veiligheid en Beveiliging Basis Oefentoets</title>
+    <link rel="stylesheet" href="style.css"> <!-- CSS Dosyası -->
+    
+    <!-- Favicon Ekleme -->
+    <link rel="icon" type="image/png" href="/favicon.png"/>
+    <link rel="icon" type="image/png" href="https://cdn2.iconfinder.com/data/icons/internet-security-vol-1-filled/32/left-indent_indent_align_alignment-512.png"/>
+</head>
+<body>
+
+<button class="toggle-button" id="toggleButton">Verander Uiterlijk</button>
+
+<h1>Veiligheid en Beveiliging Basis Oefentoets</h1>
+
+<!-- Vragen sectie -->
+<div class="section" id="vragen">
+    <div class="question">
+        <h3>1. Wat zijn de drie factoren die gelijktijdig aanwezig moeten zijn voor een verbrandingsproces?</h3>
+        <div class="button-container">
+            <button class="button" onclick="checkAnswer(1, 'A', this)">A) Brandbare stof, zuurstof, ontbrandingstemperatuur</button>
+            <button class="button" onclick="checkAnswer(1, 'B', this)">B) Water, vuur, rook</button>
+            <button class="button" onclick="checkAnswer(1, 'C', this)">C) Koolmonoxide, zuurstof, brandbare materialen</button>
+            <button class="button" onclick="checkAnswer(1, 'D', this)">D) Een muur, een deur, een sleutel</button>
+        </div>
+        <div id="result1" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>2. Wat is een primaire verantwoordelijkheid van beveiligers tijdens een brandmelding?</h3>
+        <div class="button-container">
+            <button class="button" onclick="checkAnswer(2, 'A', this)">A) Directe evacuatie van het personeel</button>
+            <button class="button" onclick="checkAnswer(2, 'B', this)">B) Rapporteren aan de brandweer</button>
+            <button class="button" onclick="checkAnswer(2, 'C', this)">C) Het controleren van alle brandmelders</button>
+            <button class="button" onclick="checkAnswer(2, 'D', this)">D) Het opstellen van een vluchtplan</button>
+        </div>
+        <div id="result2" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>3. Wat zijn de basisprincipes voor adequaat antwoord?</h3>
+        <div class="button-container">
+            <button class="button" onclick="checkAnswer(3, 'A', this)">A) Aantrekkelijkheid definieert goed gedrag</button>
+            <button class="button" onclick="checkAnswer(3, 'B', this)">B) Er moeten nauwe communicatielijnen zijn</button>
+            <button class="button" onclick="checkAnswer(3, 'C', this)">C) Mensen zijn opgeslagen als slechts onbenut</button>
+            <button class="button" onclick="checkAnswer(3, 'D', this)">D) Het verloop van omleidingen is noodzakelijk</button>
+        </div>
+        <div id="result3" class="result"></div>
+    </div>
+</div>
+
+<!-- Resultaat sectie -->
+<div class="score" id="score"></div>
+
+<script src="script.js"></script> <!-- JavaScript Dosyası -->
+</body>
+</html>
