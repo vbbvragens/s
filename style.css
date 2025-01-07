@@ -132,6 +132,30 @@ body {
     padding: 10px;
     background: #f0f4f4;
     border-radius: 5px;
+    text-align: center; /* Metni ortalar */
+    display: inline-block; /* Elemanı ortalamak için inline-block yap */
+    width: 100%; /* Genişliği %100 yaparak tam genişlikte olmasını sağlar */
+}
+
+.number {
+    display: inline-block;
+    width: 30px; /* Dairenin genişliği */
+    height: 30px; /* Dairenin yüksekliği */
+    border-radius: 50%; /* Daire şekli */
+    text-align: center; /* Metni ortalar */
+    line-height: 30px; /* Dairenin ortasında metni hizalar */
+    margin: 5px; /* Daireler arasında boşluk */
+    font-weight: bold;
+}
+
+.correct {
+    background-color: #d4edda; /* Doğru cevap için yeşil arka plan */
+    color: #155724; /* Doğru cevap için metin rengi */
+}
+
+.incorrect {
+    background-color: #f8d7da; /* Yanlış cevap için kırmızı arka plan */
+    color: #721c24; /* Yanlış cevap için metin rengi */
 }
 
 .dark-mode .score {
