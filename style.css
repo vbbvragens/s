@@ -132,6 +132,7 @@ body {
     padding: 10px;
     background: #f0f4f4;
     border-radius: 5px;
+    text-align: center;
 }
 
 .dark-mode .score {
