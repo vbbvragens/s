@@ -121,3 +121,13 @@ body {
     background-color: #222;
     color: #f4f4f4;
 }
+
+/* H1 Başlığı için Stil */
+h1 {
+    text-align: center; /* Başlığı ortalar */
+    font-weight: bold;  /* Başlığı kalın yapar */
+    font-size: 2em;     /* Başlık boyutunu artırır */
+    margin-top: 20px;   /* Üstte boşluk bırakır */
+    margin-bottom: 20px; /* Altta boşluk bırakır */
+    color: #2c3e50;     /* Başlık rengi */
+}
