@@ -54,7 +54,8 @@ function checkAnswer(questionNumber, selectedAnswer, clickedButton) {
 // Bereken en toon de score
 function displayScore() {
     const scoreDiv = document.getElementById('score');
-    scoreDiv.innerHTML = `Je score is ${correctCount} van de ${questionCount} vragen.`;
+    const totalScore = (correctCount / questionCount) * 10; // Puanı 10 üzerinden hesapla
+    scoreDiv.innerHTML = `Je score is ${correctCount} van de ${questionCount} vragen. <br> Foute antwoorden: ${incorrectCount}. <br> Totale score: ${totalScore.toFixed(1)} / 10`;
 }
 
 // Knoop voor het in- en uitschakelen van de donkere modus
