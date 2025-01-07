@@ -149,6 +149,7 @@ h1 {
     color: #2c3e50;     /* Başlık rengi */
 }
 
-.dark-mode .h1 {
-    color: #f4f4f4;     /* Başlık rengi */
+/* Koyu modda H1 başlığı için stil */
+.dark-mode h1 {
+    color: #f4f4f4; /* Koyu modda başlık rengi beyaz */
 }
