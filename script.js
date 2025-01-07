@@ -5,6 +5,7 @@ const answers = {
 };
 
 let correctCount = 0; // Aantal juiste antwoorden
+let incorrectCount = 0; // Aantal foute antwoorden
 const questionCount = Object.keys(answers).length; // Totaal aantal vragen
 
 function getExplanation(questionNumber) {
@@ -45,6 +46,7 @@ function checkAnswer(questionNumber, selectedAnswer, clickedButton) {
         correctCount++;
     } else {
         resultDiv.innerHTML = `<div class="false-result">Fout! Het juiste antwoord is ${correctAnswer}. <br> Verklaring: ${getExplanation(questionNumber)}</div>`;
+        incorrectCount++;
     }
 
     // Toon de score
@@ -56,6 +58,30 @@ function displayScore() {
     const scoreDiv = document.getElementById('score');
     const totalScore = (correctCount / questionCount) * 10; // Puanı 10 üzerinden hesapla
     scoreDiv.innerHTML = `Je score is ${correctCount} van de ${questionCount} vragen. <br> Foute antwoorden: ${incorrectCount}. <br> Totale score: ${totalScore.toFixed(1)} / 10`;
+    
+    // Sayıları göster
+    displayNumbers();
+}
+
+// Sayıları göster
+function displayNumbers() {
+    const numberContainer = document.getElementById('numberContainer');
+    numberContainer.innerHTML = ''; // Önceki içerikleri temizle
+
+    for (let i = 1; i <= questionCount; i++) {
+        const numberDiv = document.createElement('div');
+        numberDiv.className = 'number';
+        numberDiv.innerText = i;
+
+        // Doğru veya yanlış kontrolü
+        if (answers[i] === 'A' && correctCount >= i) {
+            numberDiv.classList.add('correct');
+        } else {
+            numberDiv.classList.add('incorrect');
+        }
+
+        numberContainer.appendChild(numberDiv);
+    }
 }
 
 // Knoop voor het in- en uitschakelen van de donkere modus
