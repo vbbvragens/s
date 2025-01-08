@@ -29,8 +29,74 @@ body {
     background-color: #45a049;
 }
 
-.section {
-    margin-bottom: 30px;
+.sidebar {
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    width: 150px;
+    height: 500px;
+    overflow-y: auto;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dark-mode .sidebar {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+.number {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: gray;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.solved {
+    background-color: #0895e0; /* Çözülen sorular için özel arka plan rengi */
+}
+
+.correct-solved {
+    background-color: #4CAF50;
+}
+
+.correct-number {
+    background-color: #d4edda; /* Doğru cevap için */
+}
+
+.incorrect-number {
+    background-color: #f8d7da; /* Yanlış cevap için */
+}
+
+.number:hover {
+    background-color: lightgray; /* Hover durumu için */
+}
+
+.show-all-button {
+    margin-top: 20px; /* Buton üstündeki boşluk */
+    padding: 10px; /* İç boşluk */
+    border: none; /* Kenarlık yok */
+    border-radius: 5px; /* Köşe yuvarlama */
+    background-color: #4CAF50; /* Buton rengi */
+    color: white; /* Yazı rengi */
+    cursor: pointer; /* İmleci pointer yap */
+    width: 100%; /* Buton genişliği */
+    font-size: 16px; /* Yazı boyutu */
+    transition: background-color 0.3s; /* Arka plan rengi geçişi */
+}
+
+.show-all-button:hover {
+    background-color: #0056b3; /* Hover durumunda arka plan rengi */
 }
 
 .button {
@@ -91,6 +157,7 @@ body {
     font-weight: bold;
 }
 
+/* Doğru sonuç */
 .true-result {
     background-color: #d4edda;
     color: #155724;
@@ -101,6 +168,7 @@ body {
     animation: fadeIn 0.5s; /* Doğru cevap için animasyon */
 }
 
+/* Yanlış sonuç */
 .false-result {
     background-color: #f8d7da;
     color: #721c24;
@@ -115,7 +183,6 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-
 }
 
 /* Shake animasyonu */
@@ -135,27 +202,6 @@ body {
     text-align: center; /* Metni ortalar */
     display: inline-block; /* Elemanı ortalamak için inline-block yap */
     width: 100%; /* Genişliği %100 yaparak tam genişlikte olmasını sağlar */
-}
-
-.number {
-    display: inline-block;
-    width: 30px; /* Dairenin genişliği */
-    height: 30px; /* Dairenin yüksekliği */
-    border-radius: 50%; /* Daire şekli */
-    text-align: center; /* Metni ortalar */
-    line-height: 30px; /* Dairenin ortasında metni hizalar */
-    margin: 5px; /* Daireler arasında boşluk */
-    font-weight: bold;
-}
-
-.correct {
-    background-color: #d4edda; /* Doğru cevap için yeşil arka plan */
-    color: #155724; /* Doğru cevap için metin rengi */
-}
-
-.incorrect {
-    background-color: #f8d7da; /* Yanlış cevap için kırmızı arka plan */
-    color: #721c24; /* Yanlış cevap için metin rengi */
 }
 
 .dark-mode .score {
