@@ -1,5 +1,3 @@
-// script.js
-
 const answers = {
     1: 'A',
     2: 'A',
