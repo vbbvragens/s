@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veiligheid en Beveiliging Basis Oefentoets</title>
-    <link rel="stylesheet" href="style.css"> <!-- CSS Dosyası -->
-    
-    <!-- Favicon Ekleme -->
-    <link rel="icon" type="image/png" href="/favicon.png"/>
-    <link rel="icon" type="image/png" href="https://cdn2.iconfinder.com/data/icons/internet-security-vol-1-filled/32/left-indent_indent_align_alignment-512.png"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
@@ -17,40 +13,419 @@
 <h1>Veiligheid en Beveiliging Basis Oefentoets</h1>
 
 <div class="section" id="vragen">
+    <!-- Vragen hier -->
+</div>
+
+<div class="sidebar">
+    <h3 style="text-align: center;">Vragenlijst</h3>
+    <div class="number-container" id="numberContainer"></div>
+    <button id="showAllQuestions" class="show-all-button">Toon Alle Vragen</button>
+</div>
+
     <div class="question">
-        <h3>1. Wat zijn de drie factoren die gelijktijdig aanwezig moeten zijn voor een verbrandingsproces?</h3>
-        <div class="button-container">
-            <button class="button" onclick="checkAnswer(1, 'A', this)">A) Brandbare stof, zuurstof, ontbrandingstemperatuur</button>
-            <button class="button" onclick="checkAnswer(1, 'B', this)">B) Water, vuur, rook</button>
-            <button class="button" onclick="checkAnswer(1, 'C', this)">C) Koolmonoxide, zuurstof, brandbare materialen</button>
-            <button class="button" onclick="checkAnswer(1, 'D', this)">D) Een muur, een deur, een sleutel</button>
-        </div>
+                <h3>1. Wat zijn de drie factoren die gelijktijdig aanwezig moeten zijn voor een verbrandingsproces?</h3>
+        <button class="button" onclick="checkAnswer(1, 'A', this)">A) Brandbare stof, zuurstof, ontbrandingstemperatuur; door het monitoren van opslagruimten.</button>
+        <button class="button" onclick="checkAnswer(1, 'B', this)">B) Water, vuur, rook; door een waterpomp te installeren.</button>
+        <button class="button" onclick="checkAnswer(1, 'C', this)">C) Koolmonoxide, zuurstof, brandbare materialen; door het gebruik van CO2-blussers.</button>
+        <button class="button" onclick="checkAnswer(1, 'D', this)">D) Een muur, een deur, een sleutel; door sloten te controleren.</button>
         <div id="result1" class="result"></div>
     </div>
     <div class="question">
         <h3>2. Wat is een primaire verantwoordelijkheid van beveiligers tijdens een brandmelding?</h3>
-        <div class="button-container">
-            <button class="button" onclick="checkAnswer(2, 'A', this)">A) Directe evacuatie van het personeel</button>
-            <button class="button" onclick="checkAnswer(2, 'B', this)">B) Rapporteren aan de brandweer</button>
-            <button class="button" onclick="checkAnswer(2, 'C', this)">C) Het controleren van alle brandmelders</button>
-            <button class="button" onclick="checkAnswer(2, 'D', this)">D) Het opstellen van een vluchtplan</button>
-        </div>
+        <button class="button" onclick="checkAnswer(2, 'A', this)">A) Directe evacuatie van het personeel</button>
+        <button class="button" onclick="checkAnswer(2, 'B', this)">B) Rapporteren aan de brandweer</button>
+        <button class="button" onclick="checkAnswer(2, 'C', this)">C) Het controleren van alle brandmelders</button>
+        <button class="button" onclick="checkAnswer(2, 'D', this)">D) Het opstellen van een vluchtplan</button>
         <div id="result2" class="result"></div>
     </div>
     <div class="question">
-        <h3>3. Wat zijn de basisprincipes voor adequaat antwoord?</h3>
-        <div class="button-container">
-            <button class="button" onclick="checkAnswer(3, 'A', this)">A) Aantrekkelijkheid definieert goed gedrag</button>
-            <button class="button" onclick="checkAnswer(3, 'B', this)">B) Er moeten nauwe communicatielijnen zijn</button>
-            <button class="button" onclick="checkAnswer(3, 'C', this)">C) Mensen zijn opgeslagen als slechts onbenut</button>
-            <button class="button" onclick="checkAnswer(3, 'D', this)">D) Het verloop van omleidingen is noodzakelijk</button>
-        </div>
+        <h3>3. Wat houdt manbeveiliging in en hoe kan dit bijdragen aan brandpreventie?</h3>
+        <button class="button" onclick="checkAnswer(3, 'A', this)">A) Beveiliging met technische middelen; dat verhoogt de efficiëntie bij brandbestrijding.</button>
+        <button class="button" onclick="checkAnswer(3, 'B', this)">B) Beveiliging uitgevoerd door mensen; menselijke waakzaamheid helpt bij het tijdig detecteren van brand.</button>
+        <button class="button" onclick="checkAnswer(3, 'C', this)">C) Fysieke afscherming van gebouwen; dit heeft geen invloed op brandpreventie.</button>
+        <button class="button" onclick="checkAnswer(3, 'D', this)">D) Medewerkers alleen ondersteunen; dit is alleen voor bedrijfsprestaties.</button>
         <div id="result3" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>4. Welk van de volgende hulpmiddelen valt onder technische hulpmiddelen en kan bijdragen aan brandpreventie?</h3>
+        <button class="button" onclick="checkAnswer(4, 'A', this)">A) Brandblusser</button>
+        <button class="button" onclick="checkAnswer(4, 'B', this)">B) Bewakingscamera</button>
+        <button class="button" onclick="checkAnswer(4, 'C', this)">C) Verlichting</button>
+        <button class="button" onclick="checkAnswer(4, 'D', this)">D) Alarminstallatie</button>
+        <div id="result4" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>5. Wat is de functie van een bewegingsmelder binnen de context van brandalarm?</h3>
+        <button class="button" onclick="checkAnswer(5, 'A', this)">A) Het signaleren van onbevoegd personeel</button>
+        <button class="button" onclick="checkAnswer(5, 'B', this)">B) Het detecteren van beweging die kan wijzen op brandgevaar</button>
+        <button class="button" onclick="checkAnswer(5, 'C', this)">C) Het informeren van de meldkamer over brand</button>
+        <button class="button" onclick="checkAnswer(5, 'D', this)">D) Het controleren van het toegangsbeheer</button>
+        <div id="result5" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>6. Welke instructie zijn beveiligers verplicht te volgen bij een brandmelding?</h3>
+        <button class="button" onclick="checkAnswer(6, 'A', this)">A) De brand zelf blussen</button>
+        <button class="button" onclick="checkAnswer(6, 'B', this)">B) De situatie negeren</button>
+        <button class="button" onclick="checkAnswer(6, 'C', this)">C) De alarmcentrale contacteren voor hulp</button>
+        <button class="button" onclick="checkAnswer(6, 'D', this)">D) Klanten rustig op hun plaats houden</button>
+        <div id="result6" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>7. Hoe is klantgericht handelen van belang tijdens een brand?</h3>
+        <button class="button" onclick="checkAnswer(7, 'A', this)">A) Klanten informeren over de brandbeveiliging</button>
+        <button class="button" onclick="checkAnswer(7, 'B', this)">B) Klanten negeren om chaos te voorkomen</button>
+        <button class="button" onclick="checkAnswer(7, 'C', this)">C) Negatieve feedback negeren</button>
+        <button class="button" onclick="checkAnswer(7, 'D', this)">D) Klanten alleen verlaten als het veilig is</button>
+        <div id="result7" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>8. Wat moet je doen als je een storing opmerkt in een brandalarmen systeem?</h3>
+        <button class="button" onclick="checkAnswer(8, 'A', this)">A) De storing negeren, omdat het geen probleem is</button>
+        <button class="button" onclick="checkAnswer(8, 'B', this)">B) De storing meteen met de optimalisatieparameters rapporteren</button>
+        <button class="button" onclick="checkAnswer(8, 'C', this)">C) De alarmen continu in de gaten houden</button>
+        <button class="button" onclick="checkAnswer(8, 'D', this)">D) Het systeem uitschakelen zonder te rapporteren</button>
+        <div id="result8" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>9. Als een brandmelding binnenkomt, wat is dan de gemiddelde responstijd voor een alarmcentrale?</h3>
+        <button class="button" onclick="checkAnswer(9, 'A', this)">A) Onmiddellijk – binnen enkele seconden</button>
+        <button class="button" onclick="checkAnswer(9, 'B', this)">B) Binnen vijf minuten</button>
+        <button class="button" onclick="checkAnswer(9, 'C', this)">C) De centrale doet dit pas na vijf oproepen</button>
+        <button class="button" onclick="checkAnswer(9, 'D', this)">D) Pas als er een bevestiging is van de beveiligers</button>
+        <div id="result9" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>10. Wat moet je als beveiliger doen in geval van agressief gedrag tijdens een evacuatie?</h3>
+        <button class="button" onclick="checkAnswer(10, 'A', this)">A) Agressieve woorden teruggeven</button>
+        <button class="button" onclick="checkAnswer(10, 'B', this)">B) De situatie negeren</button>
+        <button class="button" onclick="checkAnswer(10, 'C', this)">C) Jezelf en anderen in veiligheid brengen</button>
+        <button class="button" onclick="checkAnswer(10, 'D', this)">D) De politie automatisch alarmeren</button>
+        <div id="result10" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>11. Wat is een veelvoorkomende oorzaak van agressie bij bezoekers tijdens een beeldenbrand?</h3>
+        <button class="button" onclick="checkAnswer(11, 'A', this)">A) Onzekerheid of paniek</button>
+        <button class="button" onclick="checkAnswer(11, 'B', this)">B) Schade aan eigendommen</button>
+        <button class="button" onclick="checkAnswer(11, 'C', this)">C) Hunkering naar aandacht</button>
+        <button class="button" onclick="checkAnswer(11, 'D', this)">D) Frustratie over toegangspunten</button>
+        <div id="result11" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>12. Welke preventieve maatregel kan een organisatie nemen om brand te voorkomen?</h3>
+        <button class="button" onclick="checkAnswer(12, 'A', this)">A) Brandjes negeren</button>
+        <button class="button" onclick="checkAnswer(12, 'B', this)">B) Onderhoud van brandblussers</button>
+        <button class="button" onclick="checkAnswer(12, 'C', this)">C) Medewerkers geen training geven</button>
+        <button class="button" onclick="checkAnswer(12, 'D', this)">D) Slechte routinematige inspectie</button>
+        <div id="result12" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>13. Wat is een belangrijk onderdeel van het beveiligingsbeleid?</h3>
+        <button class="button" onclick="checkAnswer(13, 'A', this)">A) Het negeren van incidenten</button>
+        <button class="button" onclick="checkAnswer(13, 'B', this)">B) Het controleren van de internetveiligheid</button>
+        <button class="button" onclick="checkAnswer(13, 'C', this)">C) Het vaststellen van duidelijke protocollen voor evacuatie</button>
+        <button class="button" onclick="checkAnswer(13, 'D', this)">D) De marketingafdeling versterken</button>
+        <div id="result13" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>14. Wat moet je doen om klantgericht te handelen tijdens een beveiligingssituatie?</h3>
+        <button class="button" onclick="checkAnswer(14, 'A', this)">A) Klanten negeren</button>
+        <button class="button" onclick="checkAnswer(14, 'B', this)">B) Luisteren naar hun zorgen en hen begeleiden</button>
+        <button class="button" onclick="checkAnswer(14, 'C', this)">C) Zichzelf duiken in administratie</button>
+        <button class="button" onclick="checkAnswer(14, 'D', this)">D) Meer producten verkopen</button>
+        <div id="result14" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>15. Waarom is het belangrijk om een vriendelijke houding aan te nemen tijdens beveiligingscontroles?</h3>
+        <button class="button" onclick="checkAnswer(15, 'A', this)">A) Het creëert een ontspannen geur</button>
+        <button class="button" onclick="checkAnswer(15, 'B', this)">B) Het kan helpen bij het verzamelen van informatie</button>
+        <button class="button" onclick="checkAnswer(15, 'C', this)">C) Het maakt geen verschil</button>
+        <button class="button" onclick="checkAnswer(15, 'D', this)">D) Het leidt tot onnodige verwarring</button>
+        <div id="result15" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>16. Hoe kan effectieve communicatie tussen beveiligers helpen bij brandpreventie?</h3>
+        <button class="button" onclick="checkAnswer(16, 'A', this)">A) Het zorgt voor chaos</button>
+        <button class="button" onclick="checkAnswer(16, 'B', this)">B) Het voorkomt de uitwisseling van informatie</button>
+        <button class="button" onclick="checkAnswer(16, 'C', this)">C) Het zorgt ervoor dat iedereen op de hoogte is van hun verantwoordelijkheden</button>
+        <button class="button" onclick="checkAnswer(16, 'D', this)">D) Het leidt tot meer spanning</button>
+        <div id="result16" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>17. Wat moet je doen als je een verzoek ontvangt van een collega over een brandmelding?</h3>
+        <button class="button" onclick="checkAnswer(17, 'A', this)">A) Negeer het verzoek</button>
+        <button class="button" onclick="checkAnswer(17, 'B', this)">B) Bevestig en reageer de zorgen</button>
+        <button class="button" onclick="checkAnswer(17, 'C', this)">C) Maak geen melding</button>
+        <button class="button" onclick="checkAnswer(17, 'D', this)">D) Neem niet deel aan verzoekconstruction</button>
+        <div id="result17" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>18. Welke technologie kan worden ingezet voor branddetectie en -alarmen?</h3>
+        <button class="button" onclick="checkAnswer(18, 'A', this)">A) Biometrische scanners</button>
+        <button class="button" onclick="checkAnswer(18, 'B', this)">B) Smartphones</button>
+        <button class="button" onclick="checkAnswer(18, 'C', this)">C) Rookmelders en temperatuurgevoelige sensoren</button>
+        <button class="button" onclick="checkAnswer(18, 'D', this)">D) Bewegingsmelders voor bewakingscamera's</button>
+        <div id="result18" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>19. Hoe kunnen drones helpen bij grotere evenementen met brandpreventie?</h3>
+        <button class="button" onclick="checkAnswer(19, 'A', this)">A) Door te communiceren met de bezoekers</button>
+        <button class="button" onclick="checkAnswer(19, 'B', this)">B) Door een veiligheidsinspectie van het terrein uit te voeren</button>
+        <button class="button" onclick="checkAnswer(19, 'C', this)">C) Door de brandweermensen af te leiden</button>
+        <button class="button" onclick="checkAnswer(19, 'D', this)">D) Door alarmen te negeren</button>
+        <div id="result19" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>20. Waarom is het belangrijk om na een incident procedures te evalueren?</h3>
+        <button class="button" onclick="checkAnswer(20, 'A', this)">A) Om rapporten in te vullen zonder doel</button>
+        <button class="button" onclick="checkAnswer(20, 'B', this)">B) Om te weten wie er verantwoordelijk is</button>
+        <button class="button" onclick="checkAnswer(20, 'C', this)">C) Om te leren van fouten en de veiligheid te verbeteren</button>
+        <button class="button" onclick="checkAnswer(20, 'D', this)">D) Om nieuwe medewerkers te trainen</button>
+        <div id="result20" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>21. Welke stap is cruciaal voordat je een risicobeheerplan kunt implementeren?</h3>
+        <button class="button" onclick="checkAnswer(21, 'A', this)">A) Het uitschrijven van handboeken</button>
+        <button class="button" onclick="checkAnswer(21, 'B', this)">B) Het uitvoeren van een risicoanalyse</button>
+        <button class="button" onclick="checkAnswer(21, 'C', this)">C) Het uitnodigen van externe consultants</button>
+        <button class="button" onclick="checkAnswer(21, 'D', this)">D) Het vaststellen van de werkdruk van medewerkers</button>
+        <div id="result21" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>22. Wat is de rol van de brandweer bij openbare evenementen?</h3>
+        <button class="button" onclick="checkAnswer(22, 'A', this)">A) Het toezicht houden op mensenmassa's</button>
+        <button class="button" onclick="checkAnswer(22, 'B', this)">B) Het controleren van de toegang</button>
+        <button class="button" onclick="checkAnswer(22, 'C', this)">C) Het zorgen voor brandpreventie en snel reageren op incidenten</button>
+        <button class="button" onclick="checkAnswer(22, 'D', this)">D) Het verkopen van drankjes</button>
+        <div id="result22" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>23. Wat is een essentieel onderdeel van brandpreventie?</h3>
+        <button class="button" onclick="checkAnswer(23, 'A', this)">A) Het negeren van gezondheidsrisico's</button>
+        <button class="button" onclick="checkAnswer(23, 'B', this)">B) De uitrusting van personeel met brandblusmiddelen</button>
+        <button class="button" onclick="checkAnswer(23, 'C', this)">C) Regelmatige branddrills voor personeel en bezoekers</button>
+        <button class="button" onclick="checkAnswer(23, 'D', this)">D) De verantwoordelijkheid van niemand</button>
+        <div id="result23" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>24. Wat helpt om een beveiligingsbeleid te definiëren?</h3>
+        <button class="button" onclick="checkAnswer(24, 'A', this)">A) Ongegronde vragen</button>
+        <button class="button" onclick="checkAnswer(24, 'B', this)">B) Een duidelijke risicoanalyse</button>
+        <button class="button" onclick="checkAnswer(24, 'C', this)">C) Een definitie van persoonlijke voorkeuren</button>
+        <button class="button" onclick="checkAnswer(24, 'D', this)">D) Het negeren van incidenten</button>
+        <div id="result24" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>25. Wat is de rol van trainingsprogramma's binnen de beveiligingscontext?</h3>
+        <button class="button" onclick="checkAnswer(25, 'A', this)">A) Het trainen van medewerkers in schadebehandeling</button>
+        <button class="button" onclick="checkAnswer(25, 'B', this)">B) Het informeren van personeel over de waarden van de organisatie</button>
+        <button class="button" onclick="checkAnswer(25, 'C', this)">C) Het verbeteren van de teamwork vaardigheden en responscapaciteit</button>
+        <button class="button" onclick="checkAnswer(25, 'D', this)">D) Het omzeilen van risico's</button>
+        <div id="result25" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>26. Wat is voornaamste taak van een persoonlijke beveiliger in risicovolle situaties?</h3>
+        <button class="button" onclick="checkAnswer(26, 'A', this)">A) Gedrag van anderen observeren</button>
+        <button class="button" onclick="checkAnswer(26, 'B', this)">B) Actief betrokken zijn zonder toezicht</button>
+        <button class="button" onclick="checkAnswer(26, 'C', this)">C) De persoon in hun hoedanigheid beschermen</button>
+        <button class="button" onclick="checkAnswer(26, 'D', this)">D) Het reserveren van kamers</button>
+        <div id="result26" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>27. Welke handeling wordt als een preventieve maatregel beschouwd?</h3>
+        <button class="button" onclick="checkAnswer(27, 'A', this)">A) Het aanhouden van een verdachte</button>
+        <button class="button" onclick="checkAnswer(27, 'B', this)">B) Het organiseren van veiligheidsprotocollen</button>
+        <button class="button" onclick="checkAnswer(27, 'C', this)">C) Het melden van ongevallen</button>
+        <button class="button" onclick="checkAnswer(27, 'D', this)">D) Het controleren van vuurhulpmiddelen</button>
+        <div id="result27" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>28. Hoe moet men reageren bij een brandmelding in een drukke omgeving?</h3>
+        <button class="button" onclick="checkAnswer(28, 'A', this)">A) Dichtbij de brand blijven</button>
+        <button class="button" onclick="checkAnswer(28, 'B', this)">B) Chaos vermijden en gestructureerd evacueren</button>
+        <button class="button" onclick="checkAnswer(28, 'C', this)">C) Verwachtingen van anderen negeren</button>
+        <button class="button" onclick="checkAnswer(28, 'D', this)">D) Wachten op de brandweer</button>
+        <div id="result28" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>29. Wat is een kritische verantwoordelijkheid van beveiligers op grote evenementen?</h3>
+        <button class="button" onclick="checkAnswer(29, 'A', this)">A) Eten en drinken verzorgen voor bezoekers</button>
+        <button class="button" onclick="checkAnswer(29, 'B', this)">B) Toezicht houden en incidenten monitoren</button>
+        <button class="button" onclick="checkAnswer(29, 'C', this)">C) Deelnemen aan de entertainment</button>
+        <button class="button" onclick="checkAnswer(29, 'D', this)">D) Klantenfeedback verzamelen</button>
+        <div id="result29" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>30. Wat moet je voorkomen bij een noodsituatie?</h3>
+        <button class="button" onclick="checkAnswer(30, 'A', this)">A) Snel handelen en afhandelen</button>
+        <button class="button" onclick="checkAnswer(30, 'B', this)">B) Gedisciplineerd verantwoordelijk blijven</button>
+        <button class="button" onclick="checkAnswer(30, 'C', this)">C) Chaos creëren door slecht communiceren</button>
+        <button class="button" onclick="checkAnswer(30, 'D', this)">D) De situatie negeren en wachten</button>
+        <div id="result30" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>31. Hoe draagt een goede samenwerking bij aan brandpreventie?</h3>
+        <button class="button" onclick="checkAnswer(31, 'A', this)">A) Het bespaart tijd</button>
+        <button class="button" onclick="checkAnswer(31, 'B', this)">B) Het bevordert kennisuitwisseling en duidelijke richtlijnen</button>
+        <button class="button" onclick="checkAnswer(31, 'C', this)">C) Het verplicht individuen tot actie</button>
+        <button class="button" onclick="checkAnswer(31, 'D', this)">D) Het zorgt voor financiële repetitie</button>
+        <div id="result31" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>32. Wat doet een beveiliger voor een effectieve voorbereiding op een cruciale situatie?</h3>
+        <button class="button" onclick="checkAnswer(32, 'A', this)">A) Alleen plaats en tijd vermelden</button>
+        <button class="button" onclick="checkAnswer(32, 'B', this)">B) Vertrouwd raken met het protocol en richtlijnen</button>
+        <button class="button" onclick="checkAnswer(32, 'C', this)">C) Afhaken van de organisatie</button>
+        <button class="button" onclick="checkAnswer(32, 'D', this)">D) Totale controle overdragen</button>
+        <div id="result32" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>33. Wat is de eerste stap in brandveiligheidsplannen voor bedrijven?</h3>
+        <button class="button" onclick="checkAnswer(33, 'A', this)">A) Afronding van het rapport</button>
+        <button class="button" onclick="checkAnswer(33, 'B', this)">B) Het creëren van waardevolle training</button>
+        <button class="button" onclick="checkAnswer(33, 'C', this)">C) Het uitvoeren van een brandrisicobeoordeling</button>
+        <button class="button" onclick="checkAnswer(33, 'D', this)">D) Het samenvoegen van teams</button>
+        <div id="result33" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>34. Wat is een essentieel onderdeel van een alarmdetectiesysteem?</h3>
+        <button class="button" onclick="checkAnswer(34, 'A', this)">A) De weergave van alarm</button>
+        <button class="button" onclick="checkAnswer(34, 'B', this)">B) Het leveren van technische vereisten</button>
+        <button class="button" onclick="checkAnswer(34, 'C', this)">C) De classificering van noodsituaties</button>
+        <button class="button" onclick="checkAnswer(34, 'D', this)">D) De verzendingscapaciteit van gegevens</button>
+        <div id="result34" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>35. Wat is een van de basisprincipes van schadepreventie in organisaties?</h3>
+        <button class="button" onclick="checkAnswer(35, 'A', this)">A) Eenduidige voorwaarden en protocollen</button>
+        <button class="button" onclick="checkAnswer(35, 'B', this)">B) Verwachtingen van belastinggelden</button>
+        <button class="button" onclick="checkAnswer(35, 'C', this)">C) De inrichting van niet-beveiligde zones</button>
+        <button class="button" onclick="checkAnswer(35, 'D', this)">D) Het verkennen van financiële vooruitzichten</button>
+        <div id="result35" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>36. Hoe kan conflictoplossing verzekerd worden in teams?</h3>
+        <button class="button" onclick="checkAnswer(36, 'A', this)">A) Door de verantwoordelijkheid op anderen over te nemen</button>
+        <button class="button" onclick="checkAnswer(36, 'B', this)">B) Door risico's en kansen te analyseren</button>
+        <button class="button" onclick="checkAnswer(36, 'C', this)">C) Door open communicatielijnen</button>
+        <button class="button" onclick="checkAnswer(36, 'D', this)">D) Door onzelfzuchtige bedoelingen</button>
+        <div id="result36" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>37. Wat moet een beveiliger doen bij het vaststellen van potentiële overtredingen?</h3>
+        <button class="button" onclick="checkAnswer(37, 'A', this)">A) Niets zeggen en de situatie negeren</button>
+        <button class="button" onclick="checkAnswer(37, 'B', this)">B) Potentiële supervisie en rapportage</button>
+        <button class="button" onclick="checkAnswer(37, 'C', this)">C) De situatie of het bezwaar scherp aanvallen</button>
+        <button class="button" onclick="checkAnswer(37, 'D', this)">D) Intern verantwoorden</button>
+        <div id="result37" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>38. Wanneer is het nodig om een persoonlijke account te sluiten?</h3>
+        <button class="button" onclick="checkAnswer(38, 'A', this)">A) Na elke beslissing</button>
+        <button class="button" onclick="checkAnswer(38, 'B', this)">B) Zodra er een incident in de backstage opkomt</button>
+        <button class="button" onclick="checkAnswer(38, 'C', this)">C) Bij onbevoegd gebruik van wachtwoorden</button>
+        <button class="button" onclick="checkAnswer(38, 'D', this)">D) Gedurende wederzijdse communicatie</button>
+        <div id="result38" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>39. Wat is de primaire functie van specifieke protocols in de beveiliging?</h3>
+        <button class="button" onclick="checkAnswer(39, 'A', this)">A) Kreten van persoonlijke bijdrage</button>
+        <button class="button" onclick="checkAnswer(39, 'B', this)">B) De omlegging van informatie</button>
+        <button class="button" onclick="checkAnswer(39, 'C', this)">C) Toediening van duidelijkheid en veiligheid</button>
+        <button class="button" onclick="checkAnswer(39, 'D', this)">D) Ongebruikte hoofdstukken versnellen</button>
+        <div id="result39" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>40. Wat is een criminele achtervolging?</h3>
+        <button class="button" onclick="checkAnswer(40, 'A', this)">A) Het beperken van onmiddellijke respons</button>
+        <button class="button" onclick="checkAnswer(40, 'B', this)">B) Het rechtvaardigen van eerdere beslissingen</button>
+        <button class="button" onclick="checkAnswer(40, 'C', this)">C) Het actief reduceren van schade bij daden</button>
+        <button class="button" onclick="checkAnswer(40, 'D', this)">D) Een bereidwillige beweging richting buitenlandse wet</button>
+        <div id="result40" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>41. Wat is de conclusie van operationele planning?</h3>
+        <button class="button" onclick="checkAnswer(41, 'A', this)">A) Activeren van gedragsmodel</button>
+        <button class="button" onclick="checkAnswer(41, 'B', this)">B) Onweerlegbare prestaties</button>
+        <button class="button" onclick="checkAnswer(41, 'C', this)">C) Publiek wenden naar blusprogramma</button>
+        <button class="button" onclick="checkAnswer(41, 'D', this)">D) Structuur aan verwarring geven</button>
+        <div id="result41" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>42. Wat is de opmerkelijke rol van management bij beveiliging?</h3>
+        <button class="button" onclick="checkAnswer(42, 'A', this)">A) Beheersing van ongewenste situaties</button>
+        <button class="button" onclick="checkAnswer(42, 'B', this)">B) Slechts advies geven aan personeel</button>
+        <button class="button" onclick="checkAnswer(42, 'C', this)">C) Het vermijden van rapportages</button>
+        <button class="button" onclick="checkAnswer(42, 'D', this)">D) Het vereisen van eindeloze deelname</button>
+        <div id="result42" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>43. Waarom is veiligheidsbeleid zo belangrijk voor effectiviteit?</h3>
+        <button class="button" onclick="checkAnswer(43, 'A', this)">A) Versterkt de prestatie in leiding</button>
+        <button class="button" onclick="checkAnswer(43, 'B', this)">B) Helpt risicosystemen te ontlasten</button>
+        <button class="button" onclick="checkAnswer(43, 'C', this)">C) Zorgt voor verbeterde randvoorwaarden</button>
+        <button class="button" onclick="checkAnswer(43, 'D', this)">D) Verbetert externe netwerken en systemen</button>
+        <div id="result43" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>44. Wat is een situatie waar différentiële beveiliging van toepassing is?</h3>
+        <button class="button" onclick="checkAnswer(44, 'A', this)">A) Afdwingen van straffen</button>
+        <button class="button" onclick="checkAnswer(44, 'B', this)">B) Actieve risicobeheer waarprijzen</button>
+        <button class="button" onclick="checkAnswer(44, 'C', this)">C) Leiding storen bij evaluaties</button>
+        <button class="button" onclick="checkAnswer(44, 'D', this)">D) Het afhandelen van persoonlijke misverstanden</button>
+        <div id="result44" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>45. Wat is een belangrijke functie van virtuele beveiliging?</h3>
+        <button class="button" onclick="checkAnswer(45, 'A', this)">A) Alleen het monitoren van persoonlijke netwerken</button>
+        <button class="button" onclick="checkAnswer(45, 'B', this)">B) Identificatie en respons op dreigingen</button>
+        <button class="button" onclick="checkAnswer(45, 'C', this)">C) De ander in beslag nemen</button>
+        <button class="button" onclick="checkAnswer(45, 'D', this)">D) Het ontwikkelen van software</button>
+        <div id="result45" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>46. Wat is het doel van digitale beveiliging?</h3>
+        <button class="button" onclick="checkAnswer(46, 'A', this)">A) Actief gebruikmaken van informatie</button>
+        <button class="button" onclick="checkAnswer(46, 'B', this)">B) Voorkomen dat gegevens ongewenst toegang krijgt</button>
+        <button class="button" onclick="checkAnswer(46, 'C', this)">C) Professionele ruimte creëren</button>
+        <button class="button" onclick="checkAnswer(46, 'D', this)">D) Het alterneren van informatieve participaties</button>
+        <div id="result46" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>47. Wat is essentieel voor effectief toegangsmanagement?</h3>
+        <button class="button" onclick="checkAnswer(47, 'A', this)">A) Het alarmeren van bezoekers</button>
+        <button class="button" onclick="checkAnswer(47, 'B', this)">B) Identificatie en classificatie van bezoekers</button>
+        <button class="button" onclick="checkAnswer(47, 'C', this)">C) Neerleggen van bedrijfsinformatie</button>
+        <button class="button" onclick="checkAnswer(47, 'D', this)">D) Directe toestemming voor toegang</button>
+        <div id="result47" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>48. Hoe zou je proactief beveiligen binnen een organisatie?</h3>
+        <button class="button" onclick="checkAnswer(48, 'A', this)">A) Voorkeurs werkzaamheden op activatie-stories</button>
+        <button class="button" onclick="checkAnswer(48, 'B', this)">B) Systematische inspecties en onderhoudsprogramma's uitvoeren</button>
+        <button class="button" onclick="checkAnswer(48, 'C', this)">C) Het negeren van incidenten met terughoudendheid</button>
+        <button class="button" onclick="checkAnswer(48, 'D', this)">D) Wachtwoorden periodiek vernieuwen zonder pijnesteningen</button>
+        <div id="result48" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>49. Wat moet je doen als je een bedreiging tegenkomt?</h3>
+        <button class="button" onclick="checkAnswer(49, 'A', this)">A) Direct personen negeren en weggaan</button>
+        <button class="button" onclick="checkAnswer(49, 'B', this)">B) Rapportage doorgeven aan teamleiders</button>
+        <button class="button" onclick="checkAnswer(49, 'C', this)">C) Zichzelf aan de backoffice houden</button>
+        <button class="button" onclick="checkAnswer(49, 'D', this)">D) Volledig stoppen met participatie</button>
+        <div id="result49" class="result"></div>
+    </div>
+    <div class="question">
+        <h3>50. Wat voelt men als basisprincipes voor adequaat antwoord?</h3>
+        <button class="button" onclick="checkAnswer(50, 'A', this)">A) Aantrekkelijkheid definieert goed gedrag</button>
+        <button class="button" onclick="checkAnswer(50, 'B', this)">B) Er moeten nauwe communicatielijnen zijn</button>
+        <button class="button" onclick="checkAnswer(50, 'C', this)">C) Mensen zijn opgeslagen als slechts onbenut</button>
+        <button class="button" onclick="checkAnswer(50, 'D', this)">D) Het verloop van omleidingen is noodzakelijk</button>
+        <div id="result50" class="result"></div>
     </div>
 </div>
 
 <div class="score" id="score"></div>
 
-<script src="script.js"></script> <!-- JavaScript Dosyası -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
