@@ -12,6 +12,35 @@
         color: #f4f4f4;
     }
 
+    .navigation-buttons {
+    margin-top: 10px; /* een beetje ruimte boven de knoppen */
+    }
+
+    .nav-button {
+    background-color: #00931d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px; /* ruimte tussen de knoppen */
+    cursor: pointer; /* cursor wijzigt bij hover */
+    transition: background-color 0.3s;
+    }
+
+    .nav-button:hover {
+    background-color: #008700;
+    }
+
+    .dark-mode .nav-button{
+        background-color: #5b5b5b;
+        color: #f4f4f4;
+    }
+
+    .dark-mode .nav-button:hover{
+        background-color: #535353;
+        color: #f4f4f4;
+    }
+
     .toggle-button {
         position: absolute;
         top: 20px;
