@@ -1,3 +1,5 @@
+// script.js
+
 const answers = {
     1: 'A',
     2: 'A',
@@ -215,35 +217,72 @@ function displayNumbers() {
         numberDiv.className = 'number';
         numberDiv.innerText = i;
 
-        // Eğer soru çözüldüyse class ekleyin
-        if (document.getElementById(`result${i}`).innerHTML !== '') {
-            numberDiv.classList.add('solved'); // Çözülen sorular için stil ekleyin
-        }
+// Numaraya tıklama olayını ekle
+numberDiv.addEventListener('click', (e) => {
+    console.log(`Number ${i} clicked`);  // Tıklama olayını kontrol etmek için
+    const questions = document.querySelectorAll('.question');
+    questions.forEach((q, index) => {
+        q.style.display = (index + 1 === i) ? 'block' : 'none';
+    });
+    // Soruya kaydırma
+    const questionElement = document.querySelector(`.question:nth-child(${i})`);
+    if (questionElement) questionElement.scrollIntoView({ behavior: "smooth" });
+});
 
-        numberDiv.addEventListener('click', () => {
-            const questions = document.querySelectorAll('.question');
-            questions.forEach((q, index) => {
-                q.style.display = (index + 1 === i) ? 'block' : 'none';
-            });
-        });
+        // Çözülen sorular için stil ekle
+        if (document.getElementById(`result${i}`).innerHTML !== '') {
+            numberDiv.classList.add('solved');
+        }
 
         numberContainer.appendChild(numberDiv);
     }
 }
 
+// Sayfa yüklendikten sonra numaraları göster
+document.addEventListener('DOMContentLoaded', () => {
+    displayNumbers();
+});
+
 // Tüm soruları gösterme fonksiyonu
 function showAllQuestions() {
     const questions = document.querySelectorAll('.question');
     questions.forEach(question => {
-        question.style.display = 'block';
+        question.style.display = 'block'; // Tüm soruları göstermek için stil ayarı
+    });
+}
+
+// Yan paneli açıp kapayan fonksiyon
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show'); // 'show' sınıfını ekle veya kaldır
+}
+
+
+// Toon alle vragen functie
+function showAllQuestions() {
+    const questions = document.querySelectorAll('.question');
+    questions.forEach(question => {
+        question.style.display = 'block'; // Alle vragen tonen
     });
 }
 
 // Event listener ekleme
+document.getElementById('toggleSidebar').addEventListener('click', toggleSidebar);
 document.getElementById('showAllQuestions').addEventListener('click', showAllQuestions);
 document.getElementById('toggleButton').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 
 // Sayfa yüklendikten sonra numaraları göster
-document.addEventListener('DOMContentLoaded', displayNumbers);
+document.addEventListener('DOMContentLoaded', () => {
+    displayNumbers();
+
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Vragenlijst butonuna tıklama olayı ekleniyor
+    document.querySelector('#vragenlijst').addEventListener('click', () => {
+        console.log('Vragenlijst tuşuna tıklanmış'); // Konsol çıktısı
+        showAllQuestions(); // Tüm soruları göster
+    });
+});
