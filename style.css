@@ -1,35 +1,62 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 20px;
-    transition: background-color 0.5s, color 0.5s;
-}
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+        padding: 20px;
+        transition: background-color 0.5s, color 0.5s;
+    }
 
-.dark-mode {
-    background-color: #222;
-    color: #f4f4f4;
-}
+    .dark-mode {
+        background-color: #222;
+        color: #f4f4f4;
+    }
 
-.toggle-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
+    .toggle-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
 
-.toggle-button:hover {
-    background-color: #45a049;
-}
+    .toggle-button:hover {
+        background-color: #45a049;
+    }
 
-.sidebar {
+    .toggle-sidebar {
+        position: fixed; /* Butonu sabit yapar */
+        top: 66px; /* Üstten belirli bir mesafe */
+        right: 17px; /* Sağdan belirli bir mesafe */
+        z-index: 1000; /* Diğer öğelerin üzerinde görünür*/
+        background-color: #31af35; /* Buton rengi */
+        color: white; /* Yazı rengi */
+        border: none; /* Kenarlık yok */
+        padding: 8px 54px; /* İçerik boşlukları */
+        text-align: center; /* Yazıyı ortalar */
+        text-decoration: none; /* Altı çizgiyi kaldırır */
+        display: inline-block; /* Satır içi blok */
+        margin: 3px 2px; /* Dış boşluklar */
+        cursor: pointer; /* İmleci tıklanabilir yapar */
+        border-radius: 5px; /* Kenar yuvarlama */
+    }
+
+    .toggle-sidebar:hover {
+        background-color: #04a34c; /* Donkerder blauw bij hover */
+    }
+
+    .dark-mode .toggle-sidebar{
+        background-color: #757575;
+        color: #f4f4f4;
+    }
+
+    .sidebar {
+    display: none; /* Başlangıçta gizli */
     position: fixed;
     right: 20px;
     top: 100px;
@@ -41,185 +68,205 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
-}
+    z-index: 1000; /* Diğer öğelerin üstünde görünür olması için */
+    opacity: 0; /* Başlangıçta görünmez */
+    transform: translateY(-20px); /* Yukarıda başlat */
+    transition: opacity 1s ease, transform 1s ease; /* Geçiş efektleri */
+    transform: translateX(100%); /* Başlangıçta sağa kaydır */
+    opacity: 0; /* Başlangıçta görünmez */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Geçiş süresi ve türü */
+    }
 
-.dark-mode .sidebar {
-    background-color: #333;
-    color: #f4f4f4;
-}
+    .sidebar.show {
+    display: block; /* Show sidebar when "show" class is present */
+    opacity: 1; /* Görünür hale getir */
+    transform: translateY(0); /* Normal konumuna getir */
+    }
 
-.number {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: gray;
-    color: white;
-    text-align: center;
-    line-height: 30px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
+    .dark-mode .sidebar {
+        background-color: #333;
+        color: #f4f4f4;
+    }
 
-.solved {
-    background-color: #0895e0; /* Çözülen sorular için özel arka plan rengi */
-}
+    .number {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: gray;
+        color: white;
+        text-align: center;
+        line-height: 30px;
+        margin: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
 
-.correct-solved {
-    background-color: #4CAF50;
-}
+    .number-container {
+        display: flex; /* Flex düzen */
+        flex-wrap: wrap; /* İç öğeleri sarma */
+        justify-content: center; /* Ortala */
+        gap: 5px; /* Sayılar arasındaki boşluk */
+    }
 
-.correct-number {
-    background-color: #d4edda; /* Doğru cevap için */
-}
+    .solved {
+        background-color: #0895e0; /* Çözülen sorular için özel arka plan rengi */
+    }
 
-.incorrect-number {
-    background-color: #f8d7da; /* Yanlış cevap için */
-}
+    .correct-solved {
+        background-color: #4CAF50;
+    }
 
-.number:hover {
-    background-color: lightgray; /* Hover durumu için */
-}
+    .correct-number {
+        background-color: #d4edda; /* Doğru cevap için */
+    }
 
-.show-all-button {
-    margin-top: 20px; /* Buton üstündeki boşluk */
-    padding: 10px; /* İç boşluk */
-    border: none; /* Kenarlık yok */
-    border-radius: 5px; /* Köşe yuvarlama */
-    background-color: #4CAF50; /* Buton rengi */
-    color: white; /* Yazı rengi */
-    cursor: pointer; /* İmleci pointer yap */
-    width: 100%; /* Buton genişliği */
-    font-size: 16px; /* Yazı boyutu */
-    transition: background-color 0.3s; /* Arka plan rengi geçişi */
-}
+    .incorrect-number {
+        background-color: #f8d7da; /* Yanlış cevap için */
+    }
 
-.show-all-button:hover {
-    background-color: #0056b3; /* Hover durumunda arka plan rengi */
-}
+    .number:hover {
+        background-color: lightgray; /* Hover durumu için */
+    }
 
-.button {
-    display: block; /* Butonları blok düzende yerleştir */
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    margin: 5px 0; /* Alt alta dizilmesi için marj */
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, opacity 0.3s ease; /* Opaklık için geçiş */
-    font-size: 16px;
-}
+    .show-all-button {
+        margin-top: 20px; /* Buton üstündeki boşluk */
+        padding: 10px; /* İç boşluk */
+        border: none; /* Kenarlık yok */
+        border-radius: 5px; /* Köşe yuvarlama */
+        background-color: #4CAF50; /* Buton rengi */
+        color: white; /* Yazı rengi */
+        cursor: pointer; /* İmleci pointer yap */
+        width: 100%; /* Buton genişliği */
+        font-size: 16px; /* Yazı boyutu */
+        transition: background-color 0.3s; /* Arka plan rengi geçişi */
+    }
 
-.button.fade {
-    opacity: 0.5; /* Diğer butonların opaklığı */
-}
+    .show-all-button:hover {
+        background-color: #0074b2; /* Hover durumunda arka plan rengi */
+    }
 
-.button:hover {
-    background-color: #45a049;
-}
+    .button {
+        display: block; /* Butonları blok düzende yerleştir */
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        margin: 5px 0; /* Alt alta dizilmesi için marj */
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, opacity 0.3s ease; /* Opaklık için geçiş */
+        font-size: 16px;
+    }
 
-.selected {
-    background-color: #4CAF50; /* Seçilen cevabın arka plan rengi */
-    color: white; /* Seçilen cevabın metin rengi */
-}
+    .button.fade {
+        opacity: 0.5; /* Diğer butonların opaklığı */
+    }
 
-.dark-mode .button {
-    background-color: #666;
-    color: #f4f4f4;
-}
+    .button:hover {
+        background-color: #45a049;
+    }
 
-.dark-mode .button:hover {
-    background-color: #555;
-}
+    .selected {
+        background-color: #4CAF50; /* Seçilen cevabın arka plan rengi */
+        color: white; /* Seçilen cevabın metin rengi */
+    }
 
-.dark-mode .button.selected {
-    background-color: #515151; /* Koyu tema için seçilen buton rengi */
-}
+    .dark-mode .button {
+        background-color: #666;
+        color: #f4f4f4;
+    }
 
-.question {
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    .dark-mode .button:hover {
+        background-color: #555;
+    }
 
-.dark-mode .question {
-    background-color: #444;
-    color: #f4f4f4;
-}
+    .dark-mode .button.selected {
+        background-color: #515151; /* Koyu tema için seçilen buton rengi */
+    }
 
-.result {
-    margin-top: 10px;
-    font-weight: bold;
-}
+    .question {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-/* Doğru sonuç */
-.true-result {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 10px;
-    border: 1px solid #c3e6cb;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    animation: fadeIn 0.5s; /* Doğru cevap için animasyon */
-}
+    .dark-mode .question {
+        background-color: #444;
+        color: #f4f4f4;
+    }
 
-/* Yanlış sonuç */
-.false-result {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 10px;
-    border: 1px solid #f5c6cb;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    animation: shake 0.5s; /* Yanlış cevap için animasyon */
-}
+    .result {
+        margin-top: 10px;
+        font-weight: bold;
+    }
 
-/* Fade in animasyonu */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+    /* Doğru sonuç */
+    .true-result {
+        background-color: #d4edda;
+        color: #155724;
+        padding: 10px;
+        border: 1px solid #c3e6cb;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        animation: fadeIn 0.5s; /* Doğru cevap için animasyon */
+    }
 
-/* Shake animasyonu */
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    50% { transform: translateX(10px); }
-    75% { transform: translateX(-10px); }
-}
+    /* Yanlış sonuç */
+    .false-result {
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        animation: shake 0.5s; /* Yanlış cevap için animasyon */
+    }
 
-.score {
-    margin-top: 20px;
-    font-weight: bold;
-    padding: 10px;
-    background: #f0f4f4;
-    border-radius: 5px;
-    text-align: center; /* Metni ortalar */
-    display: inline-block; /* Elemanı ortalamak için inline-block yap */
-    width: 100%; /* Genişliği %100 yaparak tam genişlikte olmasını sağlar */
-}
+    /* Fade in animasyonu */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 
-.dark-mode .score {
-    background-color: #222;
-    color: #f4f4f4;
-}
+    /* Shake animasyonu */
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+        75% { transform: translateX(-10px); }
+    }
 
-/* H1 Başlığı için Stil */
-h1 {
-    text-align: center; /* Başlığı ortalar */
-    font-weight: bold;  /* Başlığı kalın yapar */
-    font-size: 2em;     /* Başlık boyutunu artırır */
-    margin-top: 20px;   /* Üstte boşluk bırakır */
-    margin-bottom: 20px; /* Altta boşluk bırakır */
-    color: #2c3e50;     /* Başlık rengi */
-}
+    .score {
+        margin-top: 20px;
+        font-weight: bold;
+        padding: 10px;
+        background: #f0f4f4;
+        border-radius: 5px;
+        text-align: center; /* Metni ortalar */
+        display: inline-block; /* Elemanı ortalamak için inline-block yap */
+        width: 100%; /* Genişliği %100 yaparak tam genişlikte olmasını sağlar */
+    }
 
-/* Koyu modda H1 başlığı için stil */
-.dark-mode h1 {
-    color: #f4f4f4; /* Koyu modda başlık rengi beyaz */
-}
+    .dark-mode .score {
+        background-color: #222;
+        color: #f4f4f4;
+    }
+
+    /* H1 Başlığı için Stil */
+    h1 {
+        text-align: center; /* Başlığı ortalar */
+        font-weight: bold;  /* Başlığı kalın yapar */
+        font-size: 2em;     /* Başlık boyutunu artırır */
+        margin-top: 20px;   /* Üstte boşluk bırakır */
+        margin-bottom: 20px; /* Altta boşluk bırakır */
+        color: #2c3e50;     /* Başlık rengi */
+    }
+
+    /* Koyu modda H1 başlığı için stil */
+    .dark-mode h1 {
+        color: #f4f4f4; /* Koyu modda başlık rengi beyaz */
+    }
