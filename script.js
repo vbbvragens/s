@@ -207,6 +207,15 @@ function displayScore() {
     displayNumbers();
 }
 
+function navigateToQuestion(index) {
+    const questions = document.querySelectorAll('.question');
+    questions.forEach((question, i) => {
+        question.style.display = (i === index) ? 'block' : 'none';
+    });
+    // Scroll naar de geselecteerde vraag
+    questions[index].scrollIntoView({ behavior: "smooth" });
+}
+
 // Numara görüntüleme fonksiyonu
 function displayNumbers() {
     const numberContainer = document.getElementById('numberContainer');
