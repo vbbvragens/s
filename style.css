@@ -55,11 +55,27 @@
         padding: 10px 15px;
         cursor: pointer;
         border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
+        transition: background-color 0.3s, transform 0.3s; /* Arka plan rengi ve büyütme geçişi */
+}
+
+/* Hover durumu için animasyon ekleme */
+.toggle-button:hover {
+    background-color: #4CAF50; /* Hover sırasında arka plan rengini değiştir */
+    transform: scale(1.05); /* Butonu büyütme */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hafif gölge ekle */
+}
+
+.toggle-button:active {
+    transform: scale(0.95); /* Tıklama sırasında butonu küçült */
+}
 
     .toggle-button:hover {
         background-color: #45a049;
+    }
+
+    .dark-mode .toggle-button {
+        background-color: #757575;
+        color: #f4f4f4;
     }
 
     .toggle-sidebar {
@@ -77,7 +93,19 @@
         margin: 3px 2px; /* Dış boşluklar */
         cursor: pointer; /* İmleci tıklanabilir yapar */
         border-radius: 5px; /* Kenar yuvarlama */
-    }
+        transition: background-color 0.3s, transform 0.3s; /* Arka plan rengi ve büyütme geçişi */
+}
+
+/* Hover durumu için animasyon ekleme */
+.toggle-sidebar:hover {
+    background-color: #31af35; /* Hover sırasında arka plan rengini değiştir */
+    transform: scale(1.05); /* Butonu büyütme */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hafif gölge ekle */
+}
+
+.toggle-sidebar:active {
+    transform: scale(0.95); /* Tıklama sırasında butonu küçült */
+}
 
     .toggle-sidebar:hover {
         background-color: #04a34c; /* Donkerder blauw bij hover */
@@ -107,14 +135,15 @@
     transition: opacity 1s ease, transform 1s ease; /* Geçiş efektleri */
     transform: translateX(100%); /* Başlangıçta sağa kaydır */
     opacity: 0; /* Başlangıçta görünmez */
-    transition: transform 0.5s ease, opacity 0.5s ease; /* Geçiş süresi ve türü */
-    }
+    transition: opacity 1s ease, transform 1s ease; /* Geçiş efektleri */
+}
 
-    .sidebar.show {
-    display: block; /* Show sidebar when "show" class is present */
+    /* Açıldığında animasyon için sınıf */
+.sidebar.show {
+    display: block; /* Görünür hale getir */
     opacity: 1; /* Görünür hale getir */
-    transform: translateY(0); /* Normal konumuna getir */
-    }
+    animation: slideDown 0.5s ease forwards; /* Animasyonu ekleyin */
+}
 
     .dark-mode .sidebar {
         background-color: #333;
@@ -248,6 +277,11 @@
         animation: fadeIn 0.5s; /* Doğru cevap için animasyon */
     }
 
+    .dark-mode .true-result {
+        background-color: #A2E4B1;
+        border: 1px solid #97DFA8;
+    }
+
     /* Yanlış sonuç */
     .false-result {
         background-color: #f8d7da;
@@ -257,6 +291,11 @@
         border-radius: 5px;
         margin-bottom: 10px;
         animation: shake 0.5s; /* Yanlış cevap için animasyon */
+    }
+
+    .dark-mode .false-result {
+        background-color: #F38B92;
+        border: 1px solid #E96870;
     }
 
     /* Fade in animasyonu */
@@ -296,10 +335,40 @@
         font-size: 2em;     /* Başlık boyutunu artırır */
         margin-top: 20px;   /* Üstte boşluk bırakır */
         margin-bottom: 20px; /* Altta boşluk bırakır */
-        color: #2c3e50;     /* Başlık rengi */
+        animation: slideIn 1s ease forwards; /* Animasyonu ekleyin */
     }
 
     /* Koyu modda H1 başlığı için stil */
     .dark-mode h1 {
         color: #f4f4f4; /* Koyu modda başlık rengi beyaz */
     }
+
+/* H1 başlığı için animasyon tanımlması */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px); /* Başlangıçta yukarıda */
+        opacity: 0; /* Sayfa açıldığında görünmez */
+    }
+    100% {
+        transform: translateY(0); /* Sonunda normal konumuna döner */
+        opacity: 1; /* Görünür hale gelir */
+    }
+}
+
+/* Açılma animasyonu */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-20px); /* Başlangıçta yukarıda */
+        opacity: 0; /* Sayfa açıldığında görünmez */
+    }
+    100% {
+        transform: translateY(0); /* Normal konumuna geri döner */
+        opacity: 1; /* Görünür hale gelir */
+    }
+}
+
+/* Koyu mode göz önüne alınarak değişiklikler */
+.dark-mode .sidebar {
+    background-color: #333;
+    color: #f4f4f4;
+}
