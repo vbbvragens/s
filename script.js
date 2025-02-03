@@ -199,6 +199,40 @@ function checkAnswer(questionNumber, selectedAnswer, clickedButton) {
     displayScore();
 }
 
+// Cevabı kontrol etme fonksiyonu
+function checkAnswer(questionNumber, selectedAnswer, clickedButton) {
+    const resultDiv = document.getElementById(`result${questionNumber}`);
+    const numberDiv = document.querySelector(`#numberContainer .number:nth-child(${questionNumber})`);
+
+    const buttons = clickedButton.parentElement.querySelectorAll('.button');
+    buttons.forEach(button => {
+        button.disabled = true;
+        button.classList.remove('selected');
+        if (button !== clickedButton) {
+            button.classList.add('fade');
+        }
+    });
+
+    clickedButton.classList.add('selected');
+    const correctAnswer = answers[questionNumber];
+
+    // Arka plan rengi sınıflarını uygulayın
+    if (selectedAnswer === correctAnswer) {
+        resultDiv.innerHTML = `<div class="true-result">Correct! ${getExplanation(questionNumber)}</div>`;
+        correctCount++;
+        numberDiv.classList.add('correct-solved'); // Doğru cevap için sınıf
+    } else {
+        resultDiv.innerHTML = `<div class="false-result">Fout! Het juiste antwoord is ${correctAnswer}. <br> Verklaring: ${getExplanation(questionNumber)}</div>`;
+        incorrectCount++;
+        numberDiv.classList.add('incorrect-solved'); // Yanlış cevap için sınıf
+    }
+
+    // Çözülen sorunun stilini güncelleyin
+    numberDiv.classList.add('solved');
+
+    displayScore();
+}
+
 // Score gösterme fonksiyonu
 function displayScore() {
     const scoreDiv = document.getElementById('score');
@@ -226,17 +260,17 @@ function displayNumbers() {
         numberDiv.className = 'number';
         numberDiv.innerText = i;
 
-// Numaraya tıklama olayını ekle
-numberDiv.addEventListener('click', (e) => {
-    console.log(`Number ${i} clicked`);  // Tıklama olayını kontrol etmek için
-    const questions = document.querySelectorAll('.question');
-    questions.forEach((q, index) => {
-        q.style.display = (index + 1 === i) ? 'block' : 'none';
-    });
-    // Soruya kaydırma
-    const questionElement = document.querySelector(`.question:nth-child(${i})`);
-    if (questionElement) questionElement.scrollIntoView({ behavior: "smooth" });
-});
+        // Numaraya tıklama olayını ekle
+        numberDiv.addEventListener('click', (e) => {
+            console.log(`Number ${i} clicked`);  // Tıklama olayını kontrol etmek için
+            const questions = document.querySelectorAll('.question');
+            questions.forEach((q, index) => {
+                q.style.display = (index + 1 === i) ? 'block' : 'none';
+            });
+            // Soruya kaydırma
+            const questionElement = document.querySelector(`.question:nth-child(${i})`);
+            if (questionElement) questionElement.scrollIntoView({ behavior: "smooth" });
+        });
 
         // Çözülen sorular için stil ekle
         if (document.getElementById(`result${i}`).innerHTML !== '') {
@@ -266,29 +300,23 @@ function toggleSidebar() {
     sidebar.classList.toggle('show'); // 'show' sınıfını ekle veya kaldır
 }
 
-
-// Toon alle vragen functie
-function showAllQuestions() {
-    const questions = document.querySelectorAll('.question');
-    questions.forEach(question => {
-        question.style.display = 'block'; // Alle vragen tonen
-    });
-}
-
 // Event listener ekleme
 document.getElementById('toggleSidebar').addEventListener('click', toggleSidebar);
 document.getElementById('showAllQuestions').addEventListener('click', showAllQuestions);
+
+// Dark mode toggle
 document.getElementById('toggleButton').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+
+    // Buton metnini güncelle
+    const isDarkMode = body.classList.contains('dark-mode');
+    document.getElementById('toggleButton').textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
 });
 
 // Sayfa yüklendikten sonra numaraları göster
 document.addEventListener('DOMContentLoaded', () => {
     displayNumbers();
-
-});
-
-document.addEventListener('DOMContentLoaded', () => {
     // Vragenlijst butonuna tıklama olayı ekleniyor
     document.querySelector('#vragenlijst').addEventListener('click', () => {
         console.log('Vragenlijst tuşuna tıklanmış'); // Konsol çıktısı
